@@ -5,11 +5,7 @@
 ## Tech Stack
 
 - React
-- JavaScript
 - Vite
-- React Router
-- Axios
-- CSS
 
 ## Getting Started
 
