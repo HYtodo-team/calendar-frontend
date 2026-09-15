@@ -5,7 +5,11 @@
 ## Tech Stack
 
 - React
+- TypeScript
 - Vite
+- React Router
+- Axios
+- CSS
 
 ## Getting Started
 
@@ -32,6 +36,7 @@ VITE_API_BASE_URL=http://localhost:8080
 
 ```powershell
 npm run dev
+npm run typecheck
 npm run build
 npm run lint
 npm run preview
