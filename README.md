@@ -6,10 +6,6 @@
 
 - React
 - TypeScript
-- Vite
-- React Router
-- Axios
-- CSS
 
 ## Getting Started
 
