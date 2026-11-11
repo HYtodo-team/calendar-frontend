@@ -1,5 +1,5 @@
 import api from './axios';
-import type { EventCreateRequest, EventDetailResponse, EventSummary, EventUpdateRequest, IsoDate } from '../types/api';
+import type { EventCreateRequest, EventDetailResponse, MonthlyEventSummary, EventUpdateRequest, IsoDate } from '../types/api';
 
 interface EventRangeParams {
   from: IsoDate;
@@ -12,8 +12,8 @@ export async function createEvent(eventPayload: EventCreateRequest): Promise<Eve
   return response.data;
 }
 
-export async function getEvents({ from, to }: EventRangeParams): Promise<EventSummary[]> {
-  const response = await api.get<EventSummary[]>('/calendar-events', {
+export async function getEvents({ from, to }: EventRangeParams): Promise<MonthlyEventSummary[]> {
+  const response = await api.get<MonthlyEventSummary[]>('/calendar-events', {
     params: { from, to },
   });
 

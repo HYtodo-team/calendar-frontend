@@ -26,9 +26,19 @@ export interface LoginRequest {
   password: string;
 }
 
+// 재설정 API의 경로는 명세에 있으며 본문 필드는 서버와 합의할 연동 계약이다.
+export interface PasswordResetRequest {
+  email: string;
+}
+
+export interface PasswordResetConfirmRequest {
+  token: string;
+  password: string;
+}
+
 export interface TokenResponse {
   accessToken: string;
-  tokenType?: 'Bearer';
+  tokenType: 'Bearer';
   expiresIn: number;
 }
 
@@ -43,8 +53,7 @@ export interface TodoResponse {
   id: number;
   content: string;
   isCompleted: boolean;
-  eventId: number | null;
-  eventTitle?: string | null;
+  event: { id: number; title: string } | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -70,8 +79,11 @@ export interface EventSummary {
   isImportant: boolean;
 }
 
-export interface EventDetailResponse extends EventSummary {
+export interface MonthlyEventSummary extends EventSummary {
   location: string | null;
+}
+
+export interface EventDetailResponse extends MonthlyEventSummary {
   memo: string | null;
   todos: TodoResponse[];
   createdAt: string;
@@ -116,7 +128,6 @@ export interface TimetableRequest {
 
 export interface TimetableEntryResponse {
   id: number;
-  timetableId: number;
   dayOfWeek: number;
   startTime: IsoTime;
   endTime: IsoTime;
@@ -151,5 +162,5 @@ export interface CalendarDateResponse {
 export interface DashboardSummaryResponse {
   todayEventCount: number;
   incompleteTodoCount: number;
-  upcomingPeriodEvents: EventSummary[];
+  upcomingEvents: EventSummary[];
 }
